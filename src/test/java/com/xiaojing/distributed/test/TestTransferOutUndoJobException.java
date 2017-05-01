@@ -85,14 +85,14 @@ public class TestTransferOutUndoJobException extends BaseTest {
      */
     @Test
     public void testATransferOutUndoJobSaveUndoLoExceptionImpl() throws Exception {
-        NormalSimpleTransfer phoenixCore = injector.getInstance(NormalSimpleTransfer.class);
+        NormalSimpleTransfer normalSimpleTransfer = injector.getInstance(NormalSimpleTransfer.class);
         UserDao userDao = injector.getInstance(UserDao.class);
 
         long beforeA = userDao.query(connection2, "1").getBalance();
         long beforeB = userDao.query(connection1, "2").getBalance();
         long beforeSum = beforeA + beforeB;
         try {
-            phoenixCore.transfer("1", "2", 1);
+            normalSimpleTransfer.transfer("1", "2", 1);
         } catch (Exception e) {
         }
         long afterA = userDao.query(connection2, "1").getBalance();
