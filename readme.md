@@ -191,3 +191,8 @@ rollback执行过程中的数据distribute_job和undo_job的状态如下
 
 
 最佳使用场景，电商购物车多件商品抢购模型。因为都是量变，而且直接在失败时迅速回归库存正好适用于此场景。
+
+## 参考文档
+[MySQL数据库InnoDB存储引擎Log漫游(1)](http://mp.weixin.qq.com/s?__biz=MzIyMTQ1NDE0MQ==&mid=2247483671&idx=1&sn=e066938c9a7571fdd6969b0d0ae3f661&chksm=e83dcb45df4a42535073eebf24537759bbbec7198ff5f6d8a1b096e5b04cf551d9d788a69191&mpshare=1&scene=1&srcid=1124iwqIPmeLLWTC4sy87ZXW#rd)    
+[MySQL · 引擎特性 · InnoDB undo log 漫游](http://mysql.taobao.org/monthly/2015/04/01/)    
+[MySQL · 引擎特性 · InnoDB redo log漫游](http://mysql.taobao.org/monthly/2015/05/01/)
