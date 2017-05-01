@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration status="info" shutdownHook="enable">
+    <Properties>
+        <Property name="log-path">./logs</Property>
+    </Properties>
+    <Appenders>
+        <RollingRandomAccessFile name="business-log" fileName="${log-path}/business.log" immediateFlush="true"
+                                 filePattern="${log-path}/business.log.%d{yyyyMMddHH}">
+            <PatternLayout>
+                <pattern>[%5p] [%t] %d{yyyy-MM-dd HH:mm:ss.SSS} [THREAD ID=%t] [%F:%L] %m %n</pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="error-log" fileName="${log-path}/error.log" immediateFlush="true"
+                                 filePattern="${log-path}/error.log.%d{yyyyMMddHH}">
+            <PatternLayout>
+                <pattern>[%5p] [%t] %d{yyyy-MM-dd HH:mm:ss.SSS} [THREAD ID=%t] [%F:%L] %m %n</pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingRandomAccessFile>
+
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%5p] %d{yyyy-MM-dd HH:mm:ss.SSS} [%F:%L] %m %n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root LocationInfo="true" level="info">
+            <AppenderRef ref="STDOUT" level="info"/>
+            <AppenderRef ref="business-log" level="info"/>
+            <AppenderRef ref="error-log" level="ERROR"/>
+        </Root>
+    </Loggers>
+</Configuration>
